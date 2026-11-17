@@ -100,6 +100,10 @@ h1 { font-size: 34px; line-height: 1.15; font-weight: 700; margin-bottom: 16px; 
 footer { background: #fff; border-top: 1px solid #DFE2E4; }
 footer .wrap { height: 56px; display: flex; align-items: center; font-size: 14px; color: var(--grey); }
 
+.info{
+  text-align: center;
+}
+
 @media (max-width: 860px) {
   .grid { grid-template-columns: 1fr; gap: 32px; }
   aside { position: static; order: -1; }
@@ -110,8 +114,4 @@ footer .wrap { height: 56px; display: flex; align-items: center; font-size: 14px
   header, footer, aside, .supergraphic { display: none; }
   .flyer { box-shadow: none; padding: 0; }
   main { padding: 0; }
-}
-
-.info{
-  text-align: center;
 }
