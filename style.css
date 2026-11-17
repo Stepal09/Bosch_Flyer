@@ -111,3 +111,7 @@ footer .wrap { height: 56px; display: flex; align-items: center; font-size: 14px
   .flyer { box-shadow: none; padding: 0; }
   main { padding: 0; }
 }
+
+.info{
+  text-align: center;
+}
