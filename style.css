@@ -1,0 +1,113 @@
+/* Bosch Sans: wird lokal genutzt, falls installiert – sonst die WOFF2-Dateien
+   neben diese HTML-Datei legen (BoschSans-Regular.woff2 / BoschSans-Bold.woff2). */
+@font-face {
+  font-family: "BoschSansWeb";
+  src: local("Bosch Sans"), local("BoschSans-Regular"), local("Bosch Sans Regular"),
+       url("BoschSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "BoschSansWeb";
+  src: local("Bosch Sans Bold"), local("BoschSans-Bold"),
+       url("BoschSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+:root {
+  --red: #E00420;
+  --blue: #007BC0;
+  --blue-dark: #00629A;
+  --ink: #000;
+  --grey: #71767C;
+  --bg: #EFF1F2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "BoschSansWeb", "Bosch Sans", "Bosch Office Sans", Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.supergraphic {
+  height: 6px;
+  background: linear-gradient(90deg,
+    #9E2896 0%, #E00420 18%, #9E2896 32%, #18837E 50%,
+    #007BC0 66%, #18837E 82%, #00884A 100%);
+}
+header {
+  background: #fff;
+  border-bottom: 1px solid #DFE2E4;
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.brand { font-weight: 700; font-size: 26px; color: var(--red); letter-spacing: .5px; }
+.claim { font-size: 15px; color: var(--grey); }
+
+main { flex: 1; padding: 48px 0 64px; }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 380px);
+  gap: 48px;
+  align-items: start;
+}
+.flyer {
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.08);
+}
+.flyer img { display: block; width: 100%; height: auto; }
+
+aside { position: sticky; top: 32px; }
+.eyebrow { font-size: 16px; color: var(--grey); margin-bottom: 8px; }
+h1 { font-size: 34px; line-height: 1.15; font-weight: 700; margin-bottom: 16px; }
+.lead { font-size: 17px; line-height: 1.5; margin-bottom: 28px; }
+
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%;
+  background: var(--blue);
+  color: #fff;
+  font: inherit; font-size: 17px; font-weight: 700;
+  border: none; cursor: pointer;
+  padding: 18px 24px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.btn:hover { background: var(--blue-dark); }
+.btn:focus-visible { outline: 3px solid #56B0FF; outline-offset: 3px; }
+.btn svg { width: 22px; height: 22px; flex: none; }
+.meta { font-size: 14px; color: var(--grey); margin-top: 10px; text-align: center; }
+
+.jobs { margin-top: 36px; border-top: 1px solid #DFE2E4; padding-top: 24px; }
+.jobs h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.jobs ul { list-style: none; }
+.jobs li {
+  padding: 10px 0 10px 18px; position: relative;
+  border-bottom: 1px solid #E8EAEB; font-size: 16px;
+}
+.jobs li::before {
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 6px; height: 6px; background: var(--red); transform: translateY(-50%);
+}
+.apply { display: inline-block; margin-top: 20px; color: var(--blue); font-weight: 700; text-decoration: none; }
+.apply:hover { text-decoration: underline; }
+
+footer { background: #fff; border-top: 1px solid #DFE2E4; }
+footer .wrap { height: 56px; display: flex; align-items: center; font-size: 14px; color: var(--grey); }
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; gap: 32px; }
+  aside { position: static; order: -1; }
+  h1 { font-size: 28px; }
+  .claim { display: none; }
+}
+@media print {
+  header, footer, aside, .supergraphic { display: none; }
+  .flyer { box-shadow: none; padding: 0; }
+  main { padding: 0; }
+}
